@@ -1,6 +1,6 @@
 package Dist::Zilla::PluginBundle::OLIVER;
 BEGIN {
-  $Dist::Zilla::PluginBundle::OLIVER::VERSION = '1.103640';
+  $Dist::Zilla::PluginBundle::OLIVER::VERSION = '1.111970';
 }
 
 use Moose;
@@ -25,9 +25,9 @@ has major_version => (
 # skip these dependencies
 has skip_deps => (
     is  => 'ro',
-    isa => 'Str',
+    isa => 'ArrayRef[Str]',
     lazy => 1,
-    default => sub { $_[0]->payload->{skip_deps} || '' }
+    default => sub { $_[0]->payload->{skip_deps} || [] }
 );
 
 sub configure {
@@ -117,7 +117,7 @@ Dist::Zilla::PluginBundle::OLIVER - Dists like OLIVER's
 
 =head1 VERSION
 
-version 1.103640
+version 1.111970
 
 =head1 DESCRIPTION
 
@@ -197,7 +197,7 @@ Oliver Gorwits <oliver@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2010 by Oliver Gorwits.
+This software is copyright (c) 2011 by Oliver Gorwits.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
